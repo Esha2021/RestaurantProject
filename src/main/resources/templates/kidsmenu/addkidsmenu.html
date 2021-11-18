@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replce="fragments::head">
+    <meta charset="UTF-8"/>
+    <title>${title}</title>
+</head>
+<body>
+<form method="post">
+
+<div class="form-group">
+    <label th:for="name">kidsmenu Name</label>
+    <input class="form-control" th:field="${kidsmenu.name}" />
+    <span th:errors="${kidsmenu.name}" class="error"></span>
+</div>
+
+<div class="form-group">
+    <label th:for=""> price</label>
+    <input class="form-control" th:field="${kidsmenu.price}" />
+    <span th:errors="${kidsmenu.price}" class="error"></span>
+</div>
+
+<input type="submit" value="Add" />
+</form>
+
+
+</body>
+</html>
