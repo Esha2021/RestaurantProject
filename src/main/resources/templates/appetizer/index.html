@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+
+    <head th:replace="fragments::head"><head>
+
+<body class ="container">
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Appetizer Name</th>
+            <th>Appetizer Description</th>
+            <th>Price</th>
+            <th>Type</th>
+
+        </tr>
+        </thead>
+
+        <tr th:each="appetizer : ${appetizers}">
+            <td th:text="${appetizer.getid()}"></td>
+            <td th:text="${appetizer.name}"></td>
+            <td th:text="${appetizer.description}"></td>
+            <td th:text="${appetizer.price}"></td>
+            <td th:text="${appetizer.type}"></td>
+        </tr>
+    </table>
+</body>
+</html>
