@@ -25,36 +25,37 @@ public  abstract class AbstractEntity {
     @NotNull
     private double price;
 
-    public AbstractEntity() {
-            }
-
-    public int getid() {
-        return id;
-    }
-
     public String getName() {
         return Name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public double getPrice() {
-        return price;
     }
 
     public void setName(String name) {
         Name = name;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public double getPrice() {
+        return price;
     }
 
     public void setPrice(double price) {
         this.price = price;
     }
+
+    public AbstractEntity() {
+            }
+
+    public int getId() {
+        return id;
+    }
+
 
     @Override
     public boolean equals(Object o) {

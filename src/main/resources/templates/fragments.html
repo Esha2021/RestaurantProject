@@ -2,21 +2,33 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head th:fragments="head">
     <meta charset="UTF-8"/>
-    <title>${title}</title>
-<!--    <script th:src="@(/script.js}"></script>-->
-    <link rel="stylesheet" th:href="@{/style.css}">
+    <title>Restaurant</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <title th:text="'Restaurant' + ${title == null ? '' : ' :: ' + title}">Restaurant</title>
 </head>
 
 <body>
 
 <header th:fragments=header>
-    <h1 th:text="${title}">food</h1>
+
+    <h2> Restaurant</h2>
     <ul class ='nav'>
+        <li class="nav-item"><a class="nav-link" href="/register">Register</a><li>
+        <li class="nav-item"><a class="nav-link" href="/register">Login</a><li>
         <li class="nav-item"><a class="nav-link" href="/appetizer">AppetizerMenu</a></li>
-        <li class="nav-item"><a class="nav-link" href="/appetizer/add">Add</a></li>
+
     </ul>
 </header>
 
+
+    <h3 th:fragments=menuheader>
+        <ul class='nav'>
+            <li class="nav-item"><a class="nav-link" href="/appetizer">AppetizerMenu</a></li>
+            <li class="nav-item"><a class="nav-link" href="/appetizer/add">Add</a></li>
+        </ul>
+</h3>
 </body>
 </html>

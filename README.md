@@ -7,11 +7,11 @@ Overview
   are available in the restaurant and order the menu according to their taste.
 
 Features
-    > Create a user account
+    > User login:
     > Owner can  Create ,edit,update,delete the menu
     > Search menu
     > Order the menu
-    > Create the bill and send the message to the user
+    > 
     
 Technologies
     Java
@@ -21,6 +21,9 @@ Technologies
     CSS
     SQL
 
+Learning:
+  Through this project I will learn how to give authorization to the user and admin.
+Use the public ApI to find the nutrion value of the menu.
 
   
 
