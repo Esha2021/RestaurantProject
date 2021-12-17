@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("Appetizer")
+@RequestMapping("appetizer")
 public class AppetizerController {
 
 @Autowired
@@ -47,6 +47,7 @@ public class AppetizerController {
         }
       //  model.addAttribute("appetizers","appetizers");
         appetizerRepository.save(newAppetizer);
-      return "appetizer";
+        model.addAttribute("appetizers",appetizerRepository.findAll());
+      return "appetizer/index";
   }
 }

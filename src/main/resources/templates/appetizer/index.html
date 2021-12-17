@@ -4,11 +4,12 @@
     <head th:replace="fragments::head"><head>
 
 <body class ="container">
+<h1>Appetizer </h1>
 
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>ID</th>
+
             <th>Appetizer Name</th>
             <th>Appetizer Description</th>
             <th>Price</th>
@@ -18,12 +19,17 @@
         </thead>
 
         <tr th:each="appetizer : ${appetizers}">
-            <td th:text="${appetizer.getid()}"></td>
             <td th:text="${appetizer.name}"></td>
             <td th:text="${appetizer.description}"></td>
             <td th:text="${appetizer.price}"></td>
             <td th:text="${appetizer.type}"></td>
         </tr>
     </table>
+<div>
+    <ul>
+        <li class="nav-item"><a class="nav-link" href="/appetizer/add">Add</a></li>
+    </ul>
+</div>
+
 </body>
 </html>
