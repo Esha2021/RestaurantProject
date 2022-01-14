@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+
+<head th:replace="fragments::head"><head>
+
+<body class ="container" >
+<form method="post" th:action="@{/order/myorder}">
+    <div class="table-responsive ">
+        <h1>Appetizer </h1>
+        <table class="table table-striped text-centered">
+            <thead>
+            <tr>
+
+                <th>Name</th>
+                <th>Price</th>
+                <th>Count</th>
+<!--                <th>Amount</th>-->
+
+            </thead>
+            <tbody>
+            <tr th:each="resmenu : ${myorder}">
+<!--                <td><input type ="button" th:text="Add" name="menuid" th:value="${resmenu.id}" class="form-control"></td>-->
+<!--               <td><input type ="checkbox" name="menuid" th:value="${resmenu.id}" class="form-control"></td>-->
+                <input type ="hidden" name="menuid" th:value="${resmenu.id}" class="form-control">
+                <td th:text="${resmenu.name}" ></td>
+                <td th:text="${resmenu.price}"></td>
+                <td><select id ="itemcount" name="itemcount">
+                            <option value="0" >0</option>
+                            <option value="1" >1</option>
+                           <option value="2" >2</option>
+                </select></td>
+<!--                <td th:text="${resmenu.price}"*count ></td>-->
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <input type="submit" value="submit" >
+
+</form>
+</body>
+</html>

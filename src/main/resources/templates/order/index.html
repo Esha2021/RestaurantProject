@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+
+<head th:replace="fragments::head"><head>
+
+<body class ="container">
+<form method="post">
+<div class="table-responsive ">
+    <h1>Appetizer </h1>
+    <table class="table table-striped text-centered">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Selectitem</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="resmenu : ${appetizer}">
+            <td th:text="${resmenu.name}" ></td>
+            <td th:text="${resmenu.description}"></td>
+            <td th:text="${resmenu.price}"></td>
+            <td><input type ="checkbox" name="menuid" th:value="${resmenu.id}" class="form-control"></td>
+        </tr>
+        </tbody>
+    </table>
+</div><div class="table-responsive ">
+    <h1>Soup </h1>
+    <table class="table table-striped text-centered">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Selectitem</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="resmenu : ${soup}">
+            <td th:text="${resmenu.name}" ></td>
+            <td th:text="${resmenu.description}"></td>
+            <td th:text="${resmenu.price}"></td>
+            <td><input type ="checkbox" name="menuid" th:value="${resmenu.id}" class="form-control"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+    <h1>Kids Meal </h1>
+    <table class="table table-striped text-centered">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>selectitemt</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="resmenu : ${kidsmeal}">
+            <td th:text="${resmenu.name}" ></td>
+            <td th:text="${resmenu.description}"></td>
+            <td th:text="${resmenu.price}"></td>
+            <td><input type ="checkbox" name="menuid" th:value="${resmenu.id}" class="form-control"></td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+    </div>
+    <h1>Dessert </h1>
+    <table class="table table-striped text-centered">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>selectitem</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="resmenu : ${dessert}">
+            <td th:text="${resmenu.name}" ></td>
+            <td th:text="${resmenu.description}"></td>
+            <td th:text="${resmenu.price}"></td>
+            <td><input type ="checkbox" name="menuid" th:value="${resmenu.id}" class="form-control"></td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+        <td><input type="submit" value="Add to Cart" ></td>
+
+
+<!--       smenu.name}" ></td>-->
+<!--                <td th:text="${resmenu.description}"></td>-->
+<!--                <td th:text="${res <table class="table table-striped text-centered">-->
+        <!--        <thead>-->
+        <!--        <tr>-->
+        <!--            <th>Name</th>-->
+        <!--            <th>Description</th>-->
+        <!--            <th>Price</th>-->
+        <!--            <th>Item count</th>-->
+        <!--            <th>select</th>-->
+        <!--            <th>subtotal</th>-->
+
+        <!--        </tr>-->
+        <!--        </thead>-->
+        <!--            <tr th:each="resmenu : ${resmenus}">-->
+        <!--                <td th:text="${remenu.price}"></td>-->
+<!--                <td th:text="${resmenu.type}"></td>-->
+<!--                <td><input type ="checkbox" name="menuid" th:value="${resmenu.id}" class="form-control"></td>-->
+<!--                <td><input type="submit" value="Delete menu" ></td>-->
+
+<!--            </tr>-->
+
+
+
+<!--            <tr th:each="resmenu : ${appetizer}">-->
+<!--            <td th:text="${resmenu.name}" ></td>-->
+<!--            <td th:text="${resmenu.description}"></td>-->
+<!--            <td th:text="${resmenu.price}" ></td>-->
+<!--            <td><input type ="checkbox" name="menuid" th:value="${resmenu.id}" class="form-control"></td>-->
+<!--            <td > <select id="itemcount" name="itemcount" >-->
+<!--&lt;!&ndash;                <option value="0" >0</option>&ndash;&gt;-->
+<!--                <option value="1" >1</option>-->
+<!--                <option value="2" >2</option>-->
+<!--                </select></td>-->
+<!--                <td th:text="${resmenu.price}"*itemcount>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--    </table>-->
+</div>
+<!--<div class="table-responsive ">-->
+<!--    <h2>Kids Meal</h2>-->
+<!--    <table class="table table-striped text-centered">-->
+<!--        <thead >-->
+<!--        <tr>-->
+<!--            <th>Name</th>-->
+<!--            <th>Description</th>-->
+<!--            <th>Price</th>-->
+<!--            <th >Type</th>-->
+<!--            <th >Select Item</th>-->
+<!--            <th >Item count</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+
+<!--        <tr th:each="resmenu : ${kidsmenu}">-->
+<!--            <td th:text="${resmenu.name}"></td>-->
+<!--            <td th:text="${resmenu.description}"></td>-->
+<!--            <td th:text="${resmenu.price}"></td>-->
+<!--            <td th:text="${resmenu.type}"></td>-->
+<!--            <td ><input type="checkbox" ></td>-->
+<!--            <td><select>-->
+<!--                <option value="0" >0</option>-->
+<!--                <option value="1" >1</option>-->
+<!--                <option value="2" >2</option>-->
+<!--            </select>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--</div>-->
+<!--<div class="table-responsive ">-->
+<!--    <h2>Dessert</h2>-->
+<!--    <table class="table table-striped text-centered">-->
+<!--        <thead>-->
+<!--        <tr>-->
+<!--            <th>Name</th>-->
+<!--            <th>Description</th>-->
+<!--            <th>Price</th>-->
+<!--            <th>Type</th>-->
+<!--            <th>Select Item</th>-->
+<!--            <th>Item count</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+
+<!--        <tr th:each="resmenu : ${dessert}">-->
+<!--            <td th:text="${resmenu.name}"></td>-->
+<!--            <td th:text="${resmenu.description}"></td>-->
+<!--            <td th:text="${resmenu.price}"></td>-->
+<!--            <td th:text="${resmenu.type}"></td>-->
+<!--            <td ><input type="checkbox" ></td>-->
+<!--            <td><select>-->
+<!--                <option value="0" >0</option>-->
+<!--                <option value="1" >1</option>-->
+<!--                <option value="2" >2</option>-->
+<!--            </select>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--</div>-->
+<!--<div class="table-responsive ">-->
+<!--    <h2>Soup</h2>-->
+<!--    <table class="table table-striped text-centered">-->
+<!--        <thead>-->
+<!--        <tr>-->
+<!--            <th >Name</th>-->
+<!--            <th >Description</th>-->
+<!--            <th >Price</th>-->
+<!--            <th >Type</th>-->
+<!--            <th >Select Item</th>-->
+<!--            <th >Item count</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+
+<!--        <tr th:each="resmenu : ${soup}">-->
+<!--            <td th:text="${resmenu.name}"></td>-->
+<!--            <td th:text="${resmenu.description}"></td>-->
+<!--            <td th:text="${resmenu.price}"></td>-->
+<!--            <td th:text="${resmenu.type}"></td>-->
+<!--            <td ><input type="checkbox" ></td>-->
+<!--            <td><select>-->
+<!--                <option value="0" >0</option>-->
+<!--                <option value="1" >1</option>-->
+<!--                <option value="2" >2</option>-->
+<!--            </select>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--    </table>-->
+<input type="submit" Valiue="OrderNow">
+<!--    <select>-->
+<!--        <option value="Grab and Go" >0</option>-->
+<!--        <option value="Dine in" >1</option>-->
+<!--        <option value="Delivery to your home" >2</option>-->
+<!--    </select>-->
+
+</div>
+</form>

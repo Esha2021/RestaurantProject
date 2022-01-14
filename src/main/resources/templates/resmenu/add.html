@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments::head"><head>
+<body class ="container">
+<!--<h1 th:text="${title}">food</h1>-->
+<!--<h1 th:replace="fragments::menuheader"></h1>-->
+<!--<nav th:replace="fragments :: page-header"></nav>-->
+
+<form method="post" >
+    <div class="form-group" >
+        <label th:for="name">Name</label>
+        <input class="form-control" th:field="${resmenu.name}" />
+        <span th:errors="${resmenu.name}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="name">Description</label>
+        <input class="form-control" th:field="${resmenu.description}" />
+        <span th:errors="${resmenu.description}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="price"> price</label>
+        <input class="form-control" th:field="${resmenu.price}" />
+        <span th:errors="${resmenu.price}" class="error"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label th:field ="type"> Type</label>-->
+        <select th:field="${resmenu.type}">
+            <option value="Appetizer" > Appetizer</option>
+            <option value="kidsmenu" >kidsmenu</option>
+            <option value="dessert" >dessert</option>
+            <option value="soup" >soup</option>
+        </select>
+    </div>
+
+
+     <input type="submit" value="Add menu" />
+</form>
+</body>
+</html>

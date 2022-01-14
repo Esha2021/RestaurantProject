@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+
+<head th:replace="fragments::head"><head>
+
+<body class ="container">
+
+    <form method="post">
+        <div class="table-responsive ">
+            <table class="table table-striped text-centered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>ItemCount</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="cartitem : ${cartitems}">
+                        <td th:text="${cartitem.name}"></td>
+                        <td th:text="${cartitem.price}"></td>
+                        <td th:text="${cartitem.itemcount}"></td>
+                        <td th:text="${cartitem.amount}"></td>
+                    </tr>
+<!--                    <td aria-colindex="4" th:text="${total}"> </td>-->
+                    <tr>
+                        <td colspan="2" />
+                        <td><h4>Total</h4></td>
+                        <td><b th:text="${total}" /></td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+    </form>
+</body>
+</html>

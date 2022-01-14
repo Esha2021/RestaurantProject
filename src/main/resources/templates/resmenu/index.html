@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+
+    <head th:replace="fragments::head"><head>
+
+<body class ="container">
+    <div class="table-responsive ">
+    <h1>Appetizer </h1>
+         <table class="table table-striped text-centered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Type</th>
+<!--                    <th>Select Item</th>-->
+<!--                    <th>Item count</th>-->
+               </tr>
+            </thead>
+<tbody>
+        <tr th:each="resmenu : ${appetizer}">
+            <td th:text="${resmenu.name}" ></td>
+            <td th:text="${resmenu.description}"></td>
+            <td th:text="${resmenu.price}"></td>
+            <td th:text="${resmenu.type}"></td>
+<!--           <td ><input type="checkbox" ></td>-->
+<!--            <td><select>-->
+<!--                <option value="0" >0</option>-->
+<!--                <option value="1" >1</option>-->
+<!--                <option value="2" >2</option>-->
+<!--                </select>-->
+<!--            </td>-->
+            </tr>
+</tbody>
+         </table>
+    </div>
+    <div class="table-responsive ">
+    <h2>Kids Meal</h2>
+    <table class="table table-striped text-centered">
+        <thead >
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th >Type</th>
+<!--            <th >Select Item</th>-->
+<!--            <th >Item count</th>-->
+        </tr>
+        </thead>
+
+    <tr th:each="resmenu : ${kidsmenu}">
+        <td th:text="${resmenu.name}"></td>
+        <td th:text="${resmenu.description}"></td>
+        <td th:text="${resmenu.price}"></td>
+        <td th:text="${resmenu.type}"></td>
+
+    </tr>
+    </table>
+</div>
+    <div class="table-responsive ">
+        <h2>Dessert</h2>
+        <table class="table table-striped text-centered">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Type</th>
+
+            </tr>
+            </thead>
+
+            <tr th:each="resmenu : ${dessert}">
+                <td th:text="${resmenu.name}"></td>
+                <td th:text="${resmenu.description}"></td>
+                <td th:text="${resmenu.price}"></td>
+                <td th:text="${resmenu.type}"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="table-responsive ">
+        <h2>Soup</h2>
+        <table class="table table-striped text-centered">
+            <thead>
+            <tr>
+                <th >Name</th>
+                <th >Description</th>
+                <th >Price</th>
+                <th >Type</th>
+         </tr>
+            </thead>
+
+            <tr th:each="resmenu : ${soup}">
+                <td th:text="${resmenu.name}"></td>
+                <td th:text="${resmenu.description}"></td>
+                <td th:text="${resmenu.price}"></td>
+                <td th:text="${resmenu.type}"></td>
+
+            </tr>
+        </table>
+    </div>
+
+    <ul>
+        <li  class="nav-item"><a class="nav-link" href="/resmenu/add">Add</a></li>
+        <li class="nav-item"><a class="nav-link" href="/resmenu/delete">Delete</a></li>
+        <li class="nav-item"><a class="nav-link" href="/resmenu/update">Update</a></li>
+    </ul>
+
+
+</body>
+</html>
