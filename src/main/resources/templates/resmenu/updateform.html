@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments::head"><head>
+<body class ="container">
+
+
+<form method="post" th:action="@{/resmenu/updateform}">
+    <div class="form-group">
+
+        <label hidden>ID
+
+            <input type="hidden" name="menuid" th:value="${resmenus.get().id}" class="form-control"></label>
+
+        <label>Name
+
+            <input type="text" name="name" th:value="${resmenus.get().name}" class="form-control"></label>
+        <label>Description
+
+            <input type="text" name="description" th:value="${resmenus.get().description}" class="form-control"></label>
+        <label>Price
+
+            <input type="text" name="price" th:value="${resmenus.get().price}" class="form-control"></label>
+
+        <label >Type
+            <input type="text" name="type" th:value="${resmenus.get().type}" >
+             </label>
+<!--        </select></label>-->
+    </div>
+
+    <input type="submit" value=" save">
+</form>
+</body>
+</html>

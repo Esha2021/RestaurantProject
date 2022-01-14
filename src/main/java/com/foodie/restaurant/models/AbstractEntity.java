@@ -2,22 +2,20 @@ package com.foodie.restaurant.models;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
-
 @MappedSuperclass
-public  abstract class AbstractEntity {
-
-
+public class AbstractEntity {
     @Id
     @GeneratedValue
     private int id;
 
     @NotBlank(message="Should not be blank")
-    private String Name;
+    private String name;
 
     @NotBlank(message="Should not be blank")
     private String description;
@@ -25,12 +23,24 @@ public  abstract class AbstractEntity {
     @NotNull
     private double price;
 
+    private String type;
+
+    private int itemcount;
+
+    public int getItemCount() {
+        return itemcount;
+    }
+
+    public void setItemCount(int itemCount) {
+        this.itemcount = itemcount;
+    }
+
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getDescription() {
@@ -49,13 +59,28 @@ public  abstract class AbstractEntity {
         this.price = price;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public AbstractEntity() {
-            }
+    }
+
+    public AbstractEntity(String name, String description, double price, String type, int itemCount) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.type = type;
+        this.itemcount = itemCount;
+    }
 
     public int getId() {
         return id;
     }
-
 
     @Override
     public boolean equals(Object o) {
