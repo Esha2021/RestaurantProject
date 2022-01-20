@@ -22,6 +22,8 @@ import java.util.Optional;
 public class AuthenticationController {
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    OrderMenuController orderMenuController;
 
     private static final String userSessionKey = "user";
 
@@ -116,12 +118,12 @@ public class AuthenticationController {
         }
 
         setUserInSession(request.getSession(), theUser);
-
         return "redirect:";
     }
     @GetMapping("/logout")
     public String logout(HttpServletRequest request){
         request.getSession().invalidate();
+        orderMenuController.claerArrayList();
         return "redirect:/login";
     }
 
