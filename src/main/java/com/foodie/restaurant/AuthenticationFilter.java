@@ -20,13 +20,14 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
 
     @Autowired
     AuthenticationController authenticationController;
-    private static final List<String> whitelist = Arrays.asList("/login","/register", "/logout","/css","/");
+    private static final List<String> whitelist = Arrays.asList("/login","/register", "/logout","/css");
 
     private static boolean isWhitelisted(String path) {
         for (String pathRoot : whitelist) {
             if (path.startsWith(pathRoot)) {
                 return true;
             }
+
         }
         return false;
     }
@@ -41,13 +42,21 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
             return true;
         }
 
+
         HttpSession session = request.getSession();
         User user = authenticationController.getUserFromSession(session);
 
         // The user is logged in
-        if (user != null) {
-            return true;
+        if (user != null && user.getUsername().equals("admin")) {
+                      return true;
+        }else if(user != null ){
+            if(request.getRequestURI().equals("/resmenu")){
+                response.sendRedirect("/login");
+                return false;
+            }else
+                return true;
         }
+
 
         // The user is NOT logged in
         response.sendRedirect("/login");

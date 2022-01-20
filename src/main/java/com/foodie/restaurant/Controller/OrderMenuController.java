@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -23,8 +25,13 @@ public class OrderMenuController {
 
        @Autowired
     private CartRepository cartRepository;
+    List<ResMenu> myorder= new ArrayList<>();
 
-    @GetMapping()
+    public void claerArrayList(){
+        myorder.clear();
+    }
+
+    @GetMapping
     public String index(Model model) {
         List<ResMenu> data = new ArrayList<>();
         List<ResMenu> appetizer = new ArrayList<>();
@@ -66,14 +73,19 @@ public class OrderMenuController {
 
     @PostMapping()
     public String OrderMenuForm(@RequestParam(required = false) int[] menuid, Model model) {
-List<ResMenu> myorder= new ArrayList<>();
-            if(menuid!=null){
-                for( int id:menuid){
-                    resMenuRepository.findById(id);
-                    Optional<ResMenu> myorderlist=resMenuRepository.findById(id);
-                    myorder.add(myorderlist.get());
+//List<ResMenu> myorder= new ArrayList<>();
+//     {
+
+
+                if (menuid != null) {
+                    for (int id : menuid) {
+                        resMenuRepository.findById(id);
+                        Optional<ResMenu> myorderlist = resMenuRepository.findById(id);
+                        myorder.add(myorderlist.get());
+                    }
                 }
-            }
+
+
         model.addAttribute("myorder",myorder);
             return "order/myorder";
         }
