@@ -1,9 +1,6 @@
 package com.foodie.restaurant.models;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
@@ -22,6 +19,9 @@ public class AbstractEntity {
 
     @NotNull
     private double price;
+
+
+    private String photos;
 
     private String type;
 
@@ -67,7 +67,24 @@ public class AbstractEntity {
         this.type = type;
     }
 
+    public String getPhotos() {
+        return photos;
+    }
+
+    public void setPhotos(String photos) {
+        this.photos = photos;
+    }
+
     public AbstractEntity() {
+    }
+
+    public AbstractEntity(String name, String description, double price, String photos, String type, int itemcount) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.photos = photos;
+        this.type = type;
+        this.itemcount = itemcount;
     }
 
     public AbstractEntity(String name, String description, double price, String type, int itemCount) {

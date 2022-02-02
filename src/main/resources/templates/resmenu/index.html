@@ -1,105 +1,75 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 
-    <head th:replace="fragments::head"><head>
+    <head th:replace="fragments::head">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"></head>
 
 
 <body class ="container">
-    <div class="table-responsive ">
-    <h1>Appetizer </h1>
-         <table class="table table-striped text-centered">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                    <th>Type</th>
-<!--                    <th>Select Item</th>-->
-<!--                    <th>Item count</th>-->
-               </tr>
-            </thead>
-<tbody>
-        <tr th:each="resmenu : ${appetizer}">
-            <td th:text="${resmenu.name}" ></td>
-            <td th:text="${resmenu.description}"></td>
-            <td th:text="${resmenu.price}"></td>
-            <td th:text="${resmenu.type}"></td>
-<!--           <td ><input type="checkbox" ></td>-->
-<!--            <td><select>-->
-<!--                <option value="0" >0</option>-->
-<!--                <option value="1" >1</option>-->
-<!--                <option value="2" >2</option>-->
-<!--                </select>-->
-<!--            </td>-->
-            </tr>
-</tbody>
-         </table>
+
+<h1>Welcome </h1>
+<header th:replace ="fragments::header"> </header>
+
+<h1>Appetizer</h1>
+<div class=class="container-fluid">
+    <div th:each="resmenu:${appetizer}" class="col-sm-4 d-flex align-items-stretch" >
+        <div class="card mb-2"  >
+            <img class="card-img-top embed-responsive-item" th:src="@{'/images/'+${resmenu.photos}}"  alt="Card image" style="width:100%">
+            <div class="card-body">
+                <h4 class="card-title" th:text="${resmenu.name}">Menu name</h4>
+                <h6 class="card-text" th:text="${resmenu.description}"></h6>
+                <p class="card-text" th:text="${resmenu.price}">Price</p>
+
+            </div>
+        </div>
     </div>
-    <div class="table-responsive ">
-    <h2>Kids Meal</h2>
-    <table class="table table-striped text-centered">
-        <thead >
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th >Type</th>
-<!--            <th >Select Item</th>-->
-<!--            <th >Item count</th>-->
-        </tr>
-        </thead>
+ </div>
 
-    <tr th:each="resmenu : ${kidsmenu}">
-        <td th:text="${resmenu.name}"></td>
-        <td th:text="${resmenu.description}"></td>
-        <td th:text="${resmenu.price}"></td>
-        <td th:text="${resmenu.type}"></td>
 
-    </tr>
-    </table>
+<h1>Soup</h1>
+<div class=class="container-fluid">
+    <div th:each="resmenu:${soup}" class="col-sm-4  class=col-sm-4 d-flex align-items-stretch ">
+        <div class="card mb-2"  >
+            <img class="card-img-top" th:src="@{'/images/'+${resmenu.photos}}"  alt="Card image" style="width:100%">
+            <div class="card-body">
+                <h4 class="card-title" th:text="${resmenu.name}">Menu name</h4>
+                <h6 class="card-text" th:text="${resmenu.description}"></h6>
+                <p class="card-text" th:text="${resmenu.price}">Price</p>
+
+            </div>
+        </div>
+    </div>
 </div>
-    <div class="table-responsive ">
-        <h2>Dessert</h2>
-        <table class="table table-striped text-centered">
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Type</th>
 
-            </tr>
-            </thead>
+<h1>KidsMenu</h1>
+<div class=class="container-fluid">
+    <div th:each="resmenu:${kidsmenu}" class="col-sm-4 class=col-sm-4 d-flex align-items-stretch">
+        <div class="card mb-2"  >
+            <img class="card-img-top embed-responsive-item" th:src="@{'/images/'+${resmenu.photos}}"  alt="Card image" style="width:100%">
+            <div class="card-body">
+                <h4 class="card-title" th:text="${resmenu.name}">Menu name</h4>
+                <h6 class="card-text" th:text="${resmenu.description}"></h6>
+                <p class="card-text" th:text="${resmenu.price}">Price</p>
 
-            <tr th:each="resmenu : ${dessert}">
-                <td th:text="${resmenu.name}"></td>
-                <td th:text="${resmenu.description}"></td>
-                <td th:text="${resmenu.price}"></td>
-                <td th:text="${resmenu.type}"></td>
-            </tr>
-        </table>
+            </div>
+        </div>
     </div>
-    <div class="table-responsive ">
-        <h2>Soup</h2>
-        <table class="table table-striped text-centered">
-            <thead>
-            <tr>
-                <th >Name</th>
-                <th >Description</th>
-                <th >Price</th>
-                <th >Type</th>
-         </tr>
-            </thead>
+</div>
 
-            <tr th:each="resmenu : ${soup}">
-                <td th:text="${resmenu.name}"></td>
-                <td th:text="${resmenu.description}"></td>
-                <td th:text="${resmenu.price}"></td>
-                <td th:text="${resmenu.type}"></td>
+<h1>Dessert</h1>
+<div class=class="container-fluid">
+    <div th:each="resmenu:${dessert}" class="col-sm-4 class=col-sm-4 d-flex align-items-stretch ">
+        <div class="card mb-2"  >
+            <img class="card-img-top" th:src="@{'/images/'+${resmenu.photos}}"  alt="Card image" style="width:100%">
+            <div class="card-body">
+                <h4 class="card-title" th:text="${resmenu.name}">Menu name</h4>
+                <h6 class="card-text" th:text="${resmenu.description}"></h6>
+                <p class="card-text" th:text="${resmenu.price}">Price</p>
 
-            </tr>
-        </table>
+            </div>
+        </div>
     </div>
+</div>
 
     <ul>
         <li  class="nav-item"><a class="nav-link" href="/resmenu/add">Add</a></li>
@@ -107,6 +77,6 @@
         <li class="nav-item"><a class="nav-link" href="/resmenu/update">Update</a></li>
     </ul>
 
-
 </body>
+
 </html>

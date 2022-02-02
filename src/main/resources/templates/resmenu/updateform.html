@@ -20,11 +20,14 @@
         <label>Price
 
             <input type="text" name="price" th:value="${resmenus.get().price}" class="form-control"></label>
+        <label>photos
+            <input type="file"  name="file" accept="images/png, images/jpeg,images/jfif,images/jpg" />
+        </label>
 
         <label >Type
             <input type="text" name="type" th:value="${resmenus.get().type}" >
              </label>
-<!--        </select></label>-->
+
     </div>
 
     <input type="submit" value=" save">

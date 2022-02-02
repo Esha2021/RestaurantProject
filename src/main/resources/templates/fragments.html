@@ -3,8 +3,12 @@
 <head th:fragments="head">
     <meta charset="UTF-8"/>
     <title>Restaurant</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
 
     <link rel="stylesheet" th:href="@{/style.css}">
     <title th:text="'Restaurant' + ${title == null ? '' : ' :: ' + title}">Restaurant</title>
@@ -12,25 +16,26 @@
 
 <body>
 
-<header th:fragments=header>
-
-    <h2> Restaurant</h2>
+<header th:fragments="header">
 
 
-    <ul class ='nav'>
-        <li class="nav-item"><a class="nav-link" href="/register">Register</a><li>
-        <li class="nav-item"><a class="nav-link" href="/login">Login</a><li>
-<!--        <li class="nav-item"><a class="nav-link" href="/resmenu">Menu</a></li>-->
-        <li class="nav-item"><a class="nav-link" href="/order">Order Menu</a></li>
-    </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+      <div class="container-fluid">
+            <div class="navbar-header">
+            <a class ="navbar-brand"> Esha Restaurant</a>
+            </div>
+
+     <ul class="nav navbar-nav">
+       <li class="nav-item"><a class="nav-link" href="/order">Order Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="/resmenu">Menu</a></li>
+     </ul>
+     <ul class="nav navbar-nav navbar-right">
+         <li style="float:right"><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+     </ul>
+        </div>
+   </nav>
+
 </header>
 
-
-    <h3 th:fragments=menuheader>
-        <ul class='nav'>
-            <li class="nav-item"><a class="nav-link" href="/resmenu">Menu</a></li>
-            <li class="nav-item"><a class="nav-link" href="/resmenu/add">Add</a></li>
-        </ul>
-</h3>
 </body>
 </html>
