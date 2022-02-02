@@ -20,30 +20,14 @@
             <td th:text="${resmenu.description}"></td>
             <td th:text="${resmenu.price}"></td>
             <td th:text="${resmenu.type}"></td>
+<!--            <td><img class="card-img-top embed-responsive-item" th:src="@{'/images/'+${resmenu.photos}}"  alt="Card image" style="width:50%"></td>-->
             <td><input type ="radio" name="menuid" th:value="${resmenu.id}" class="form-control"></td>
             <td><input type="submit" value="update menu" ></td>
         </tr>
         </tbody>
     </table>
 
-<!--    &lt;!&ndash;    <th:block th:each="resmenu : ${resmenus}">&ndash;&gt;-->
-<!--        <div class="form-group">-->
-<!--&lt;!&ndash;            <label>&ndash;&gt;-->
-<!--&lt;!&ndash;                <span th:text="${resmenu.name}"></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                <input type="radio" name="id" th:value="${resmenu.id}" class="form-control">&ndash;&gt;-->
-<!--&lt;!&ndash;            </label>&ndash;&gt;-->
-<!--            <label>Name-->
 
-<!--                <input type="text" name="name" th:value="${resmenu.name}" class="form-control"></label>-->
-<!--            <label>Description-->
-
-<!--                <input type="text" name="description" th:value="${resmenu.description}" class="form-control"></label>-->
-<!--            <label>Price-->
-
-<!--                <input type="text" name="price" th:value="${resmenu.price}" class="form-control"></label>-->
-
-<!--     </div>-->
-<!--&lt;!&ndash;    </th:block>&ndash;&gt;-->
 <!--    <input type="submit" value=" save">-->
 </form>
 </body>

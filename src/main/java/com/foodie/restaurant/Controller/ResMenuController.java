@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -71,13 +72,19 @@ public class ResMenuController {
     }
 
     @PostMapping("add")
-    public String processAppetizerForm(@ModelAttribute @Valid ResMenu newresmenu, Errors errors, Model model) {
+    public String processAppetizerForm(@ModelAttribute @Valid ResMenu newresmenu, @RequestParam("file") MultipartFile file ,Errors errors, Model model) {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "add resmenu");
             return "resmenu/add";
         }
+        newresmenu.setPhotos(file.getOriginalFilename());
+        System.out.println(file.getContentType());
+        System.out.println(file.getOriginalFilename());
+        System.out.println(file.getResource());
+        //System.out.println(file.getBytes());
       resMenuRepository.save(newresmenu);
+
         return "redirect:";
         }
 
@@ -118,13 +125,16 @@ public class ResMenuController {
 
     }
    @PostMapping("updateform")
-  public String processUpdateForm(@RequestParam int menuid,@RequestParam String name,@RequestParam String description,@RequestParam Double price,@RequestParam String type, Model model){
+  public String processUpdateForm(@RequestParam int menuid,@RequestParam String name,@RequestParam String description,@RequestParam Double price,@RequestParam String type,@RequestParam String file, Model model){
        System.out.println("updateform"+menuid);
    Optional<ResMenu> menuupdate= resMenuRepository.findById(menuid);
    ResMenu res2=menuupdate.get();
    res2.setName(name);
    res2.setDescription(description);
    res2.setPrice(price);
+if(!file.isEmpty()) {
+    res2.setPhotos(file);
+}
    res2.setType(type);
        System.out.println(res2);
    resMenuRepository.save(res2);
